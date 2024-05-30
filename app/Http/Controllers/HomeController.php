@@ -11,14 +11,17 @@ class HomeController extends Controller
 {
     public function index()
     {
-        if(Auth::user()->usertype == "user") {
-            return view("dashboard");
-        }else
-        {
-            return view("admin.home");
+        if (Auth::check()) {
+            //Check the Auth if user then go to admin.home
+            if(Auth::user()->usertype == "user") {
+                return view("dashboard");
+            }else
+            {
+                return view("admin.home");
+            }
         }
+        return redirect("/");
     }
-
     public function page()
     {
         return view("admin.admin");
