@@ -20,7 +20,7 @@ class HomeController extends Controller
                 return view("admin.home");
             }
         }
-        return redirect("/");
+        return redirect("/login");
     }
     public function page()
     {
